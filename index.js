@@ -7,6 +7,12 @@ const bot = new TelegramBot(token, {polling: true})
 
 dbConnect()
 
+bot.setMyCommands([
+  { command: '/start', description: 'Start the bot' },
+  { command: '/get_message_of_today', description: 'Bugungi xabarlarni olish' },
+  { command: '/get_last_ten_days_messages', description: 'On kunlik xabarlar' },
+]);
+
 function runBot() {
 	bot.on('message', async (msg) => {
 		const chatID = msg.chat.id
